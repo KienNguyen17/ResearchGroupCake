@@ -45,9 +45,31 @@ class BasicGui:
 
         # Convert to Image object
         # self.photo = Image.open("./img/wug.png").resize((90, 110))
+        self.cakePic = Image.open("./img/cake.png").resize((250, 250))
+        self.cakeCommand = ImageTk.PhotoImage(self.cakePic)
 
         # # List to contain ImageTk object, or else it gets deleted by garbage collector
         # self.wugList = []
+
+        # Click this button to show a birthday cake and "happy birthday"
+        self.surpriseButton = tk.Button(self.rootWin,
+            text="🌟Surprise!🌼",
+            font = "Times 12",
+            fg = "blue",
+            justify = tk.CENTER,
+            bd = 10,
+            command = self.birthdayText)
+        self.surpriseButton.grid(row=2, column=2)
+
+    def birthdayText(self):
+        self.mainCanvas.create_text(400, 150, text="🎂HAPPY BIRTHDAY!!!🍰",
+                                  fill="darkblue", font = ("Comic Sans MS", 35))
+        self.mainCanvas.create_text(200, 450, text="🎂",
+                                  fill="blue", font = "Arial 300")
+        #self.mainCanvas.create_text(650, 350, text="🧋",
+                                    #fill="blue", font="Arial 300")
+        self.mainCanvas.create_image(650, 350, image=self.cakeCommand)
+
 
     def addWug(self, num):
         self.mainCanvas.delete(tk.ALL)
