@@ -62,13 +62,16 @@ class BasicGui:
         self.surpriseButton.grid(row=2, column=2)
 
     def birthdayText(self):
-        self.mainCanvas.create_text(400, 150, text="🎂HAPPY BIRTHDAY!!!🍰",
+        self.mainCanvas.create_text(400, 150, text="🎂HAPPY BIRTHDAY, Suhas!!!🍰",
                                   fill="darkblue", font = ("Comic Sans MS", 35))
         self.mainCanvas.create_text(200, 450, text="🎂",
                                   fill="blue", font = "Arial 300")
         #self.mainCanvas.create_text(650, 350, text="🧋",
                                     #fill="blue", font="Arial 300")
         self.mainCanvas.create_image(650, 350, image=self.cakeCommand)
+        self.mainCanvas.create_text(600, 550, text="From your lovely research students✨",
+                                    fill="darkblue", font=("Comic Sans MS", 15))
+
 
 
     def addWug(self, num):
@@ -125,16 +128,13 @@ class BasicGui:
         w4, z4 = 53, -4.5
         points6 = bezier_curve(w1, z1, w2, z2, w3, z3, w4, z4, tk=True)
 
-        # self.mainCanvas.create_line(*(points1 + points2 + points3 + points4 + points5 + points6 ), fill = "black", smooth = True, width = 4)
         self.mainCanvas.create_polygon(*(points1 + points2), fill = "lightblue", smooth = True, width = 3, tags=("wug" + str(x) + str(y)))
-        # self.mainCanvas.create_line(*(points2), fill = "blue", smooth = True, width = 3, tags=("wug" + str(x) + str(y)))
         self.mainCanvas.create_line(*(points3), fill = "blue", smooth = True, width = 3, tags=("wug" + str(x) + str(y)))
         self.mainCanvas.create_line(*(points4), fill = "blue", smooth = True, width = 3, tags=("wug" + str(x) + str(y)))
         self.mainCanvas.create_line(*(points5), fill = "blue", smooth = True, width = 3, tags=("wug" + str(x) + str(y)))
         self.mainCanvas.create_line(*(points6), fill = "blue", smooth = True, width = 3, tags=("wug" + str(x) + str(y)))
 
         self.mainCanvas.create_oval(-50, -18, -44, -10, fill="black", tags=("wug" + str(x) + str(y)))
-        # self.mainCanvas.move(self.mainCanvas.find_withtag("wug"), 100, 100)
         for i in self.mainCanvas.find_withtag("wug" + str(x) + str(y)):
             self.mainCanvas.move(i, x, y)
 
